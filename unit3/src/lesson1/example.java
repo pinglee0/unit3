@@ -1,4 +1,5 @@
 package lesson1;
+import java.util.*;
 public class example {
     public static boolean bothOdd(int n1, int n2) {
         boolean test = n1 % 2 != 0 && n2 % 2 != 0;
@@ -83,5 +84,32 @@ class Sprite{
     public Sprite(int x,int y){
         Sx=x;
         Sy=y;
+    }
+}
+class lab1{
+    public static void main(String[] args){
+        Scanner con=new Scanner(System.in);
+        System.out.println("Height (in inches): ");
+        double h=con.nextDouble();
+        System.out.println("Weight (in pounds): ");
+        double w=con.nextDouble();
+        System.out.println("BMI = "+bmi(h,w));
+        System.out.println(weightClass(h,w));
+
+    }
+    public static double bmi(double height, double weight){
+        double BMI=weight/Math.pow(height,2)*703;
+        return BMI;
+    }
+    public static String weightClass(double height, double weight){
+        double bmi=bmi(height,weight);
+        if(bmi<18.5)
+            return "underweight";
+        else if(bmi<25)
+            return "normal";
+        else if(bmi<30)
+            return "overweight";
+        else
+            return "obese";
     }
 }
